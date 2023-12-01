@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    //вводим n и задаем массив (порядок в котором финишировали)
+    int n;
+    cin >> n;
+    int *arr = new int(n);
+    int *max_arr = new int(n+1);
+    int *min_arr = new int(n+1);
+    
+    for (int i = 0; i < n; i++) {
+        int item;
+        cin >> item;
+        arr[i] = item;
+    }
+
+    for (int i = 0; i < n; i++) {
+
+        int max = n;
+        int min = 1;
+
+        for (int j = 0; j < n; j++) {
+
+            if (arr[j] < arr[i] || i < j) max -= 1;
+            if (arr[j] > arr[i] || i > j) min += 1;
+
+        }
+
+        max_arr[arr[i]] = max;
+        min_arr[arr[i]] = min;
+        
+    }
+
+    for (int i = 1; i <= n; i++) {
+        cout << max_arr[i] << " " << min_arr[i] << endl;
+    }
+
+    delete [] arr, max_arr, min_arr;
+}

@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+//functions
+void createNewArray(double*& pArray, int size);
+void fillUpTheArray(double *pArray, int size);
+void showTheArrayData(double *pArray, int size);
+void deleteArray(double *pArray);
+
+int main() {
+
+    double *pMyArray;
+    int sizeOfArray = 0;
+    char check;
+    
+    do {
+        cout << "Enter the size of massive: ";
+        cin >> sizeOfArray;
+
+        createNewArray(pMyArray, sizeOfArray);
+        fillUpTheArray(pMyArray, sizeOfArray);
+        showTheArrayData(pMyArray, sizeOfArray);
+        deleteArray(pMyArray);
+
+        cout << endl << "You wanna continue? y/n: ";
+        cin >> check;
+
+    } while (check != 'n');
+    
+}
+
+//create new array with specified size
+void createNewArray(double*& pArray, int size) {
+    pArray = new double[size];
+}
+
+//fill the array up with random data
+void fillUpTheArray(double *pArray, int size) {
+    for (int i = 0; i < size; i++) {
+        pArray[i] = i + 1;
+    }
+}
+
+//show the array's data
+void showTheArrayData(double *pArray, int size) {
+    for (int i = 0; i < size; i++) {
+        cout << pArray[i] << " ";
+    }
+}
+
+//delete the array
+void deleteArray(double *pArray) {
+    delete [] pArray;
+}

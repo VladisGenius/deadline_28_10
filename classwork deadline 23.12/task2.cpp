@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int yy, mm, dd;
+    cout << "Enter the date (year month day): ";
+    cin >> yy >> mm >> dd;
+
+       if(yy>0)
+       {
+         if(mm==1 || mm==3 || mm==5|| mm==7|| mm==8||mm==10||mm==12 && dd>0 && dd<=31)
+         cout<<"Date is Valide";
+         
+         else 
+            if(mm==4 || mm==6 || mm==9|| mm==11 && dd>0 && dd<=30)
+            cout<<"Date is Valid";
+         
+         else
+            if(mm==2)
+               {
+               if((yy%400==0 || (yy%100!=0 && yy%4==0)) && dd>0 && dd<=29)
+                 cout<<"Date is Valide";
+               else if(dd>0 && dd<=28)
+                  cout<<"Date is Valid";
+               else
+                  cout<<"Date is Invalid";
+               }
+         else
+               cout<<"Date is Invalid";
+      }
+    else
+        cout<<"Date is Invalid";
+  }
